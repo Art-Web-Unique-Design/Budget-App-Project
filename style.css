@@ -1,0 +1,208 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+.top, .top .budget, .bottom {
+  grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(10, [col-start] minmax(min-content, 11.4rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  color: #555;
+  font-family: Open Sans;
+  font-size: 1.6rem;
+  height: 100vh;
+  font-weight: 400; }
+
+.right {
+  display: flex; }
+
+.red {
+  color: #FF5049 !important; }
+  .red-focus:focus {
+    border: 1px solid #FF5049 !important; }
+
+/**********************************************
+*** TOP PART
+**********************************************/
+.top {
+  height: 40vh;
+  display: grid;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(back.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-content: center; }
+  .top .budget {
+    color: #fff;
+    display: grid;
+    width: 100%;
+    margin-left: 5%;
+    align-content: center; }
+    .top .budget__title {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      grid-column: col-start 4 / col-end 6; }
+    .top .budget__value {
+      font-weight: 300;
+      font-size: 4.6rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      letter-spacing: .2rem;
+      grid-column: col-start 4 / col-end 6; }
+    .top .budget__income, .top .budget__expenses {
+      padding: 1.2rem;
+      text-transform: uppercase;
+      grid-column: col-start 4 / col-end 6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; }
+    .top .budget__income {
+      margin-bottom: 1rem;
+      background-color: #28B9B5; }
+    .top .budget__expenses {
+      background-color: #FF5049; }
+    .top .budget__income--text, .top .budget__expenses--text {
+      font-size: 1.3rem;
+      color: #444;
+      margin-top: .2rem; }
+    .top .budget__income--value, .top .budget__expenses--value {
+      letter-spacing: .1rem; }
+    .top .budget__income-percentage, .top .budget__expenses--percentage {
+      width: 3.4rem;
+      font-size: 1.1rem;
+      padding: .3rem 0;
+      margin-left: 1rem; }
+    .top .budget__expenses--percentage {
+      background-color: rgba(255, 255, 255, 0.2);
+      text-align: center;
+      border-radius: .3rem; }
+
+/**********************************************
+*** BOTTOM PART
+**********************************************/
+.bottom {
+  display: grid; }
+
+/***** FORM *****/
+.add {
+  padding: 1.4rem;
+  border-bottom: .1rem solid #e7e7e7;
+  background-color: #f7f7f7;
+  grid-column: full-start / full-end; }
+  .add__container {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .add__type {
+    width: 5.5rem;
+    border: 1px solid #e7e7e7;
+    height: 4.4rem;
+    font-size: 1.8rem;
+    color: inherit;
+    background-color: #fff;
+    margin-right: 1rem;
+    font-weight: 300;
+    transition: border 0.3s; }
+  .add__description, .add__value {
+    border: 1px solid #e7e7e7;
+    background-color: #fff;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1.4rem;
+    padding: 1.2rem 1.5rem;
+    margin-right: 1rem;
+    border-radius: .5rem;
+    transition: border 0.3s; }
+  .add__description {
+    width: 40rem; }
+  .add__value {
+    width: 10rem; }
+  .add__btn {
+    font-size: 3.5rem;
+    background: none;
+    border: none;
+    color: #28B9B5;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1.1;
+    margin-left: 1rem; }
+  .add__btn:active {
+    transform: translateY(2px); }
+  .add__type:focus, .add__description:focus, .add__value:focus {
+    outline: none;
+    border: 1px solid #28B9B5; }
+  .add__btn:focus {
+    outline: none; }
+
+/***** LISTS *****/
+.container {
+  grid-column: center-start / center-end;
+  margin-top: 8%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(min-content, 1fr));
+  grid-column-gap: 5rem; }
+  .container h2 {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem; }
+  .container .income__title {
+    color: #28B9B5; }
+  .container .expenses__title {
+    color: #FF5049; }
+  .container .item {
+    padding: 1.3rem;
+    border-bottom: 1px solid #e7e7e7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .container .item:first-child {
+      border-top: 1px solid #e7e7e7; }
+    .container .item:nth-child(even) {
+      background-color: #f7f7f7; }
+    .container .item__value {
+      transition: transform 0.3s; }
+    .container .item__percentage {
+      margin-left: 2rem;
+      transition: transform 0.3s;
+      font-size: 1.1rem;
+      background-color: #FFDAD9;
+      padding: .3rem;
+      border-radius: .3rem; }
+    .container .item__delete--btn {
+      font-size: 2.2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      line-height: 1;
+      display: none; }
+    .container .item__delete--btn:focus {
+      outline: none; }
+    .container .item__delete--btn:active {
+      transform: translateY(0.1rem); }
+  .container .item:hover .item__delete--btn {
+    display: block; }
+  .container .item:hover .item__value {
+    transform: translateX(-2rem); }
+  .container .item:hover .item__percentage {
+    transform: translateX(-2rem); }
+  .container .income .item__value,
+  .container .income .item__delete--btn {
+    color: #28B9B5; }
+  .container .expenses .item__value,
+  .container .expenses .item__percentage,
+  .container .expenses .item__delete--btn {
+    color: #FF5049; }
